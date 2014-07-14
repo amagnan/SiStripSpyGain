@@ -1,16 +1,16 @@
 #!/bin/sh
 
 
-cd /afs/cern.ch/work/a/amagnan/CMSSW_5_3_9/src/
+cd /afs/cern.ch/work/a/amagnan/CMSSW_5_3_19/src/
 eval `scramv1 runtime -sh`
 cd -
 source /afs/cern.ch/project/eos/installation/cms/etc/setup.sh
-RUNNUMBER=202209
+RUNNUMBER=198372
 
 eos mkdir -p /store/group/comm_tracker/Strip/SpyChannel/$RUNNUMBER/
-eos cp /afs/cern.ch/work/a/amagnan/CMSSW_5_3_9/src/DQM/SiStripMonitorHardware/test/$RUNNUMBER/gainAnalysis_cfg.py /eos/cms/store/group/comm_tracker/Strip/SpyChannel/$RUNNUMBER/gainAnalysis_cfg.py
+eos cp /afs/cern.ch/work/a/amagnan/CMSSW_5_3_19/src/UserCode/SiStripSpyGain/test/$RUNNUMBER/gainAnalysis_cfg.py /eos/cms/store/group/comm_tracker/Strip/SpyChannel/$RUNNUMBER/gainAnalysis_cfg.py
 
-cp /afs/cern.ch/work/a/amagnan/CMSSW_5_3_9/src/DQM/SiStripMonitorHardware/test/$RUNNUMBER/gainAnalysis_cfg.py .
+cp /afs/cern.ch/work/a/amagnan/CMSSW_5_3_19/src/UserCode/SiStripSpyGain/test/$RUNNUMBER/gainAnalysis_cfg.py .
 cmsRun gainAnalysis_cfg.py
 
 eos cp `pwd`/DQMStore.root /eos/cms/store/group/comm_tracker/Strip/SpyChannel/$RUNNUMBER/DQMStore.root
